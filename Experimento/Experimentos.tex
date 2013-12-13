@@ -1,0 +1,84 @@
+\documentclass[11pt,spanish,letterpaper]{report}
+\usepackage[right=2cm,left=3cm,top=2cm,bottom=2cm,headsep=0cm,footskip=1cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\title{Ejercicio de usabilidad de Ghosts}
+\author{Ricardo Jacas}
+
+\begin{document}
+\maketitle
+%\vspace{-1cm}
+
+\section*{Problema 1, Cuentas Internacionales}
+
+Se desea hacer un programa que represente la interacción de un usuario con su cuenta bancaria, en cajeros automáticos que manejan distintos tipos de moneda.
+
+Para ello debe crear las clases {\tt User} y {\tt Account} que representan al usuario y a su cuenta, respectivamente. Además se cree la clase {\tt ATM} que representa a los cajeros automáticos. Por simplicidad, el sistema sólo debe manejar Dólares y Pesos, mediante las clases {\tt Dollar} y {\tt Peso}.
+
+Cada {\tt User} podrá retirar dinero, en algún tipo de moneda, mediante su método {\tt getMoney}, que extraerá dicho dinero de un {\tt ATM}, indicando también de que cuenta ({\tt Account}) y cuanto quiere retirar, expresado como {\tt Double}.
+
+Las cuentas se crearán para un tipo de moneda específica y un usuario en particular. La cantidad de dinero que almacenan debe ser representada por un tipo de moneda, no por un número.
+
+Los {\tt ATM} también deben estar asociados a un tipo de moneda en específico, pero deben permitir la extracción de dinero de cualquier cuenta. Lo anterior mediante el método {\tt getMoney}, que dado un usuario y una cuenta específicos, junto con una cantidad de dinero representada por un número (en  {\tt Double}), retornará el dinero solicitado, en la moneda que maneja.
+
+No debe crear jerarquías de {\tt ATM} o de {\tt Account}, sólo preocúpese que ambas clases manejen los dos tipos de moneda.
+
+Escriba todos sus números en formato {\tt Double} (ejemplo: \verb|0| es \verb|0.0|).
+
+Para sus pruebas, cree la clase {\tt TestAccounts} que extienda de {\tt TestCase} y escriba los siguientes métodos de prueba:
+
+\begin{itemize}
+	\item {\tt testCreation}: Para probar los constructores de sus clases y los valores iniciales.
+	\item {\tt testGetMoney}: Para probar el retiro de dinero por parte de un usuario, de su cuenta, en un cajero que utiliza la misma moneda que su cuenta.
+	\item {\tt testGetTonsOfMoney}: Para probar el retiro de dinero por parte de un usuario, de su cuenta, en un cajero que utiliza la misma moneda que su cuenta, pero pidiendo más dinero del que su cuenta contiene.
+	\item {\tt testGetForeignMoney}: Para probar el retiro de dinero por parte de un usuario, de su cuenta, en un cajero que utiliza una moneda diferente a la de su cuenta.
+\end{itemize}
+\newpage
+
+\section*{Pregunta 2, Sistema de archivos}
+
+Un sistema de archivos cotidiano está compuesto por archivos y capetas, que contienen archivos y/o carpetas.
+
+Se desea implementar un sistema de archivos donde cada carpeta tenga ordenados, por nombre, sus elementos. Para ello se implementarán las clases {\tt NFolder} y {\tt NFile}. Por simplicidad ambas clases se representarán por un nombre y tendrán un método {\tt getPath} para indicar su ruta completa desde la carpeta que esté más arriba en el sistema. Además, las carpetas tendrán los siguientes métodos:
+
+\begin{itemize}
+ 	\item {\tt getSize}: para obtener la cantidad de archivos ({\tt NFile}) que posee.
+ 	\item {\tt getElem}: que dada una posición, retorna el elemento en dicha posición.
+ 	\item {\tt addElem}: para agregar un elemento.
+ 	\item {\tt removeElem}: para quitar un elemento.
+\end{itemize} 
+
+Para reforzar que nuestras carpetas sólo puedan contener archivos y carpetas, y que estos estén ordenados por nombre, cada carpeta contendrá internamente una lista, representada por la clase {\tt NList} que se encargará de contener los archivos dentro de la carpeta. \textbf{Tenga presente que {\tt NList} no es una clase generica, solamente maneja {\tt NFolder} y {\tt NFile}}.
+
+Para implementar {\tt NList} cree una lista doblemente enlazada, con concepto de sucesor y antecesor, utilizando una clase {\tt NNode} que se encargue de manejar está idea y contener un elemento. Usando lo anterior implemente {\tt NList} con los siguientes métodos:
+
+\begin{itemize}
+ 	\item {\tt size}: para obtener su cantidad de elementos.
+ 	\item {\tt get}: que dada una posición, retorna el nodo en dicha posición.
+ 	\item {\tt add}: para agregar un nodo.
+ 	\item {\tt remove}: para quitar un nodo.
+\end{itemize}
+
+Para sus pruebas, cree las clases {\tt TestFileSystem} y {\tt TestList} que extienda de {\tt TestCase} y escriba los siguientes métodos de prueba:
+
+Para {\tt TestList}
+\begin{itemize}
+	\item {\tt testCreation}: Para probar los constructores de {\tt NList} y {\tt NNode}, y sus valores iniciales.
+	\item {\tt testAdd}: Para probar que se generan los cambios esperados al agregar un nodo.
+	\item {\tt testAddRemove}: Para probar que la lista se mantiene coherente al agregar y quitar un elemento.
+	\item {\tt testAddOrdered}: Para probar si efectivamente los elementos están ordenados dentro de la lista.
+\end{itemize}
+
+Para {\tt TestFileSystem}
+\begin{itemize}
+	\item {\tt testCreation}: Para probar los constructores de {\tt NFolder} y {\tt NFile}, y sus valores iniciales.
+	\item {\tt testAddFile}: Para probar que se generan los cambios esperados al agregar un archivo.
+	\item {\tt testAddFileOrdered}: Para probar si efectivamente los archivos están ordenados dentro de la lista.
+	\item {\tt testAddFolder}: Para probar si al agregar una carpeta a otra carpeta todo sigue siendo coherente, esto es, que los métodos {\tt size} y {\tt getPath} funcionan correctamente.	
+\end{itemize}
+
+Se le recomienda, por simplicidad, que primero realice todos sus métodos de prueba asumiendo que una carpeta sólo puede contener archivos ({\tt NFile}) y cuando todas sus pruebas (salvo {\tt TestAddFolder}) cumplan con el diseño que espera, hacer la extensión a carpetas dentro de carpetas.
+
+\end{document}

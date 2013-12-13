@@ -1,0 +1,7 @@
+experimento completo: 1:30
+por cada experimento: tiempo de tests + tiempo de desarrollo
+varias clases colaborativas
+agregar posibilidad de errores de tipo, métodos sin firmas
+grabar el experimento con screen recorder
+entrevista abierta grabada "q te parece el experimento?"
+medir la cantidad de mierda que queda en el código
