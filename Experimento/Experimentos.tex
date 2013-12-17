@@ -21,7 +21,12 @@ Cada {\tt User} podrá retirar dinero, en algún tipo de moneda, mediante su mé
 
 Las cuentas se crearán para un tipo de moneda específica y un usuario en particular. La cantidad de dinero que almacenan debe ser representada por un tipo de moneda, no por un número. Estas deberán proveer el método {\tt getAmount} que retorna la cantidad de dinero, en pesos/dólares que queda en la cuenta. 
 
-Los {\tt ATM} también deben estar asociados a un tipo de moneda en específico, pero deben permitir la extracción de dinero de cualquier cuenta. Lo anterior mediante el método {\tt getMoney}, que dado un usuario y una cuenta específicos, junto con una cantidad de dinero representada por un número (en  {\tt double}), retornará el dinero solicitado, en la moneda que maneja.
+Los {\tt ATM} también deben estar asociados a un tipo de moneda en específico, pero deben permitir la extracción de dinero de cualquier cuenta. Lo anterior mediante el método {\tt getMoney}, que dado un usuario y una cuenta específicos, junto con una cantidad de dinero representada por un número (en  {\tt double}), retornará el dinero solicitado, en la moneda que maneja. Además los {\tt ATM} deberán proveer las operaciones:
+\begin{itemize}
+	\item {\tt depositMoney} que dado un usuario, una cuenta y una cantidad de dinero, representada por un número (en  {\tt double}), aumenta la cantidad de dinero en la cuenta, guardando cuidado con la moneda que maneja el {\tt ATM}.
+	\item {\tt moveMoney} que dado un usuario, una cuenta propia, una cuenta ajena y una cantidad de dinero representada por un número (en  {\tt double}), debe traspasar el dinero de una cuenta a otra, teniendo en consideración los tipos de monedas que manejan ambas cuentas, y por el {\tt ATM}. Además deberá retornar {\tt true} si la operación es exitosa y {\tt false} si no lo es.
+\end{itemize}
+	
 
 No debe crear jerarquías de {\tt ATM} o de {\tt Account}, sólo preocúpese que ambas clases manejen los dos tipos de moneda.
 
@@ -33,6 +38,9 @@ Para sus pruebas, cree la clase {\tt TestAccounts} que extienda de {\tt TestCase
 	\item {\tt testGetTonsOfMoney}: Para probar el retiro de dinero por parte de un usuario, de su cuenta, en un cajero que utiliza la misma moneda que su cuenta, pero pidiendo más dinero del que su cuenta contiene.
 	\item {\tt testGetDollarFromPeso}: Para probar el retiro de dinero por parte de un usuario, de su cuenta en pesos, en un cajero que utiliza dólares.
 	\item {\tt testGetPesoFromDollar}: Para probar el retiro de dinero por parte de un usuario, de su cuenta en dólares, en un cajero que utiliza pesos.	
+	\item {\tt testDepositDollarFromPeso}: Para probar el depósito de dinero por parte de un usuario, de su cuenta en pesos, en un cajero que utiliza dólares.	
+	\item {\tt testDepositPesoFromDollar}: Para probar el depósito de dinero por parte de un usuario, de su cuenta en dólares, en un cajero que utiliza pesos.	
+	\item {\tt testMoveFromPesoToDollarInPeso}: Para probar el movimiento de dinero por parte de un usuario, de su cuenta en pesos a una cuenta en dólares, en un cajero que utiliza pesos.	
 \end{itemize}
 \newpage
 
@@ -40,7 +48,7 @@ Para sus pruebas, cree la clase {\tt TestAccounts} que extienda de {\tt TestCase
 
 Un sistema de archivos cotidiano está compuesto por archivos y capetas, que contienen archivos y/o carpetas.
 
-Se desea implementar un sistema de archivos donde cada carpeta tenga ordenados, por nombre, sus elementos. Para ello se implementarán las clases {\tt NFolder} y {\tt NFile}. Por simplicidad ambas clases se representarán por un nombre y tendrán un método {\tt getPath} para indicar su ruta completa desde la carpeta que esté más arriba en el sistema. Además, las carpetas tendrán los siguientes métodos:
+Se desea implementar un sistema de archivos donde cada carpeta tenga ordenados, por nombre, sus elementos. Para ello se implementarán las clases {\tt NFolder} y {\tt NFile}. Por simplicidad ambas clases se representarán por un nombre y tendrán un método {\tt getPath} que retornará un objeto de tipo {\tt NPath} para representar su ruta en el sistema de archivos. Además, las carpetas tendrán los siguientes métodos:
 
 \begin{itemize}
  	\item {\tt getSize}: para obtener la cantidad de archivos ({\tt NFile}) que posee.
@@ -48,8 +56,10 @@ Se desea implementar un sistema de archivos donde cada carpeta tenga ordenados, 
  	\item {\tt addElem}: para agregar un elemento.
  	\item {\tt removeElem}: para quitar un elemento.
  	\item {\tt findFile}: que busca un archivo, recursivamente, por su nombre, y lo retorna. Si no existe, retorna {\tt null}.
- 	\item {\tt move}: para mover un elemento a otra carpeta.
+ 	\item {\tt moveElem}: para mover un elemento a otra carpeta.
 \end{itemize} 
+
+Los {\tt NPath} deberán implementar 2 métodos: {\tt getFullPath} y {\tt getRelativePath}, que retornan la ruta completa, como {\tt String}, del elemento a la carpeta más arriba en el sistema de archivos y la ruta relativa del elemento a una carpeta específica, respectivamente. Para la ruta relativa, utilice la notación clásica, esto es, describa la ruta de la forma {\tt ./carpeta1/carpeta2/archivo} donde el punto representa la carpeta de la cual se pide la ruta relativa.
 
 Para reforzar que nuestras carpetas sólo puedan contener archivos y carpetas, y que estos estén ordenados por nombre, cada carpeta contendrá internamente una lista, representada por la clase {\tt NList} que se encargará de contener los archivos dentro de la carpeta. \textbf{Tenga presente que {\tt NList} no es una clase generica, solamente maneja {\tt NFolder} y {\tt NFile}}.
 
@@ -77,7 +87,7 @@ Para {\tt TestFileSystem}
 	\item {\tt testAddFileOrdered}: Para probar si efectivamente los archivos están ordenados dentro de la lista.
 	\item {\tt testAddFolder}: Para probar si al agregar una carpeta a otra carpeta todo sigue siendo coherente, esto es, que los métodos {\tt size} y {\tt getPath} funcionan correctamente.
 	\item {\tt testFind}: Para ver si la búsqueda de un archivo se realiza correctamente.		
-	\item {\tt testPath}: Para probar si la operación {\tt getPath} funciona correctamente al introducir archivos a carpetas y al anidar carpetas.
+	\item {\tt testPath}: Para probar si la operación {\tt getPath} funciona correctamente al introducir archivos a carpetas y al anidar carpetas, probando las operaciones de la clase {\tt NPath}.
 	\item {\tt testMove}: Para ver si al mover un elemento este desaparece del lugar de origen y aparece en el de destino. Recuerde probar si los {\tt path} se actualizan.
 \end{itemize}
 
