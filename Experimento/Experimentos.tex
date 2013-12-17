@@ -15,25 +15,24 @@
 
 Se desea hacer un programa que represente la interacción de un usuario con su cuenta bancaria, en cajeros automáticos que manejan distintos tipos de moneda.
 
-Para ello debe crear las clases {\tt User} y {\tt Account} que representan al usuario y a su cuenta, respectivamente. Además se cree la clase {\tt ATM} que representa a los cajeros automáticos. Por simplicidad, el sistema sólo debe manejar Dólares y Pesos, mediante las clases {\tt Dollar} y {\tt Peso}.
+Para ello debe crear las clases {\tt User} y {\tt Account} que representan al usuario y a su cuenta, respectivamente. Además se cree la clase {\tt ATM} que representa a los cajeros automáticos. Por simplicidad, el sistema sólo debe manejar Dólares y Pesos, mediante las clases {\tt Dollar} y {\tt Peso}, ambas clases deberán proveer  el método {\tt getQuantity} que retorna la cantidad, en {\tt double}, de dinero que representan.
 
-Cada {\tt User} podrá retirar dinero, en algún tipo de moneda, mediante su método {\tt getMoney}, que extraerá dicho dinero de un {\tt ATM}, indicando también de que cuenta ({\tt Account}) y cuanto quiere retirar, expresado como {\tt Double}.
+Cada {\tt User} podrá retirar dinero, en algún tipo de moneda, mediante su método {\tt getMoney}, que extraerá dicho dinero de un {\tt ATM}, indicando también de que cuenta ({\tt Account}) y cuanto quiere retirar, expresado como {\tt double}. Si la cantidad solicitada supera la cantidad presente en la cuenta, esta debe retornar el máximo presente en la cuenta.
 
-Las cuentas se crearán para un tipo de moneda específica y un usuario en particular. La cantidad de dinero que almacenan debe ser representada por un tipo de moneda, no por un número.
+Las cuentas se crearán para un tipo de moneda específica y un usuario en particular. La cantidad de dinero que almacenan debe ser representada por un tipo de moneda, no por un número. Estas deberán proveer el método {\tt getAmount} que retorna la cantidad de dinero, en pesos/dólares que queda en la cuenta. 
 
-Los {\tt ATM} también deben estar asociados a un tipo de moneda en específico, pero deben permitir la extracción de dinero de cualquier cuenta. Lo anterior mediante el método {\tt getMoney}, que dado un usuario y una cuenta específicos, junto con una cantidad de dinero representada por un número (en  {\tt Double}), retornará el dinero solicitado, en la moneda que maneja.
+Los {\tt ATM} también deben estar asociados a un tipo de moneda en específico, pero deben permitir la extracción de dinero de cualquier cuenta. Lo anterior mediante el método {\tt getMoney}, que dado un usuario y una cuenta específicos, junto con una cantidad de dinero representada por un número (en  {\tt double}), retornará el dinero solicitado, en la moneda que maneja.
 
 No debe crear jerarquías de {\tt ATM} o de {\tt Account}, sólo preocúpese que ambas clases manejen los dos tipos de moneda.
 
-Escriba todos sus números en formato {\tt Double} (ejemplo: \verb|0| es \verb|0.0|).
 
 Para sus pruebas, cree la clase {\tt TestAccounts} que extienda de {\tt TestCase} y escriba los siguientes métodos de prueba:
 
 \begin{itemize}
-	\item {\tt testCreation}: Para probar los constructores de sus clases y los valores iniciales.
 	\item {\tt testGetMoney}: Para probar el retiro de dinero por parte de un usuario, de su cuenta, en un cajero que utiliza la misma moneda que su cuenta.
 	\item {\tt testGetTonsOfMoney}: Para probar el retiro de dinero por parte de un usuario, de su cuenta, en un cajero que utiliza la misma moneda que su cuenta, pero pidiendo más dinero del que su cuenta contiene.
-	\item {\tt testGetForeignMoney}: Para probar el retiro de dinero por parte de un usuario, de su cuenta, en un cajero que utiliza una moneda diferente a la de su cuenta.
+	\item {\tt testGetDollarFromPeso}: Para probar el retiro de dinero por parte de un usuario, de su cuenta en pesos, en un cajero que utiliza dólares.
+	\item {\tt testGetPesoFromDollar}: Para probar el retiro de dinero por parte de un usuario, de su cuenta en dólares, en un cajero que utiliza pesos.	
 \end{itemize}
 \newpage
 
@@ -48,11 +47,13 @@ Se desea implementar un sistema de archivos donde cada carpeta tenga ordenados, 
  	\item {\tt getElem}: que dada una posición, retorna el elemento en dicha posición.
  	\item {\tt addElem}: para agregar un elemento.
  	\item {\tt removeElem}: para quitar un elemento.
+ 	\item {\tt findFile}: que busca un archivo, recursivamente, por su nombre, y lo retorna. Si no existe, retorna {\tt null}.
+ 	\item {\tt move}: para mover un elemento a otra carpeta.
 \end{itemize} 
 
 Para reforzar que nuestras carpetas sólo puedan contener archivos y carpetas, y que estos estén ordenados por nombre, cada carpeta contendrá internamente una lista, representada por la clase {\tt NList} que se encargará de contener los archivos dentro de la carpeta. \textbf{Tenga presente que {\tt NList} no es una clase generica, solamente maneja {\tt NFolder} y {\tt NFile}}.
 
-Para implementar {\tt NList} cree una lista doblemente enlazada, con concepto de sucesor y antecesor, utilizando una clase {\tt NNode} que se encargue de manejar está idea y contener un elemento. Usando lo anterior implemente {\tt NList} con los siguientes métodos:
+Para implementar {\tt NList} cree una lista doblemente enlazada utilizando una clase {\tt NNode} que se encargue de manejar los conceptos de sucesor y antecesor, y contener un elemento. Usando lo anterior implemente {\tt NList} con los siguientes métodos:
 
 \begin{itemize}
  	\item {\tt size}: para obtener su cantidad de elementos.
@@ -65,7 +66,6 @@ Para sus pruebas, cree las clases {\tt TestFileSystem} y {\tt TestList} que exti
 
 Para {\tt TestList}
 \begin{itemize}
-	\item {\tt testCreation}: Para probar los constructores de {\tt NList} y {\tt NNode}, y sus valores iniciales.
 	\item {\tt testAdd}: Para probar que se generan los cambios esperados al agregar un nodo.
 	\item {\tt testAddRemove}: Para probar que la lista se mantiene coherente al agregar y quitar un elemento.
 	\item {\tt testAddOrdered}: Para probar si efectivamente los elementos están ordenados dentro de la lista.
@@ -73,12 +73,12 @@ Para {\tt TestList}
 
 Para {\tt TestFileSystem}
 \begin{itemize}
-	\item {\tt testCreation}: Para probar los constructores de {\tt NFolder} y {\tt NFile}, y sus valores iniciales.
 	\item {\tt testAddFile}: Para probar que se generan los cambios esperados al agregar un archivo.
 	\item {\tt testAddFileOrdered}: Para probar si efectivamente los archivos están ordenados dentro de la lista.
-	\item {\tt testAddFolder}: Para probar si al agregar una carpeta a otra carpeta todo sigue siendo coherente, esto es, que los métodos {\tt size} y {\tt getPath} funcionan correctamente.	
+	\item {\tt testAddFolder}: Para probar si al agregar una carpeta a otra carpeta todo sigue siendo coherente, esto es, que los métodos {\tt size} y {\tt getPath} funcionan correctamente.
+	\item {\tt testFind}: Para ver si la búsqueda de un archivo se realiza correctamente.		
+	\item {\tt testPath}: Para probar si la operación {\tt getPath} funciona correctamente al introducir archivos a carpetas y al anidar carpetas.
+	\item {\tt testMove}: Para ver si al mover un elemento este desaparece del lugar de origen y aparece en el de destino. Recuerde probar si los {\tt path} se actualizan.
 \end{itemize}
-
-Se le recomienda, por simplicidad, que primero realice todos sus métodos de prueba asumiendo que una carpeta sólo puede contener archivos ({\tt NFile}) y cuando todas sus pruebas (salvo {\tt TestAddFolder}) cumplan con el diseño que espera, hacer la extensión a carpetas dentro de carpetas.
 
 \end{document}

@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.4.19)  13 DEC 2013 10:24
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.4.19)  16 DEC 2013 22:23
 entering extended mode
 **Experimentos.tex
-(C:\Users\ricar_000\Desktop\Experimento\Experimentos.tex
+(C:\Users\ricar_000\Desktop\GhostsExperiment\Experimento\Experimentos.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -340,7 +340,7 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen112
 \Gin@req@width=\dimen113
 )
-(C:\Users\ricar_000\Desktop\Experimento\Experimentos.aux)
+(C:\Users\ricar_000\Desktop\GhostsExperiment\Experimento\Experimentos.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
@@ -415,33 +415,28 @@ LaTeX Font Info:    Try loading font information for T1+cmtt on input line 18.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-) [1]
-Overfull \hbox (15.59813pt too wide) in paragraph at lines 82--83
-\T1/cmr/m/n/10.95 que una car-pe-ta só-lo pue-de con-te-ner ar-chi-vos (\T1/cmt
-t/m/n/10.95 NFile\T1/cmr/m/n/10.95 ) y cuan-do to-das sus prue-bas (sal-vo \T1/
-cmtt/m/n/10.95 TestAddFolder\T1/cmr/m/n/10.95 )
- []
-
-[2] (C:\Users\ricar_000\Desktop\Experimento\Experimentos.aux) ) 
+) [1] [2] [3]
+(C:\Users\ricar_000\Desktop\GhostsExperiment\Experimento\Experimentos.aux) ) 
 Here is how much of TeX's memory you used:
  2687 strings out of 493921
- 33977 string characters out of 3147270
+ 34096 string characters out of 3147270
  98279 words of memory out of 3000000
  5968 multiletter control sequences out of 15000+200000
  11617 words of font info for 31 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,6n,27p,451b,187s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\ricar
-_000\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1095.pk> <
-C:\Users\ricar_000\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
-ectt1095.pk> <C:\Users\ricar_000\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknap
-pen\ec\dpi600\ecrm1095.pk> <C:\Users\ricar_000\AppData\Local\MiKTeX\2.9\fonts\p
-k\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\ricar_000\AppData\Local\MiKT
-eX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\ricar_000\AppD
-ata\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk>
-Output written on Experimentos.pdf (3 pages, 62696 bytes).
+ 27i,6n,27p,580b,191s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C
+:\Users\ricar_000\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\e
+cbx1095.pk> <C:\Users\ricar_000\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknapp
+en\ec\dpi600\ectt1095.pk> <C:\Users\ricar_000\AppData\Local\MiKTeX\2.9\fonts\pk
+\ljfour\jknappen\ec\dpi600\ecrm1095.pk> <C:\Users\ricar_000\AppData\Local\MiKTe
+X\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\ricar_000\AppDa
+ta\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\r
+icar_000\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.p
+k>
+Output written on Experimentos.pdf (4 pages, 64373 bytes).
 PDF statistics:
- 197 PDF objects out of 1000 (max. 8388607)
+ 202 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
