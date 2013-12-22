@@ -1,18 +1,14 @@
 
 
 public class User {
-	private String name;
 	
+	String name;
+
+	public MyCurrency getMoney(ATM t1, Account t2, double t3) {
+		return t1.getMoney(this,t2,t3);
+	}
+
 	public User(String t1) {
 		name = t1;
 	}
-	
-	public MyCurrency getMoney(ATM t1, Account a, double t2) {
-		return t1.getMoney(this, a, t2);
-	}
-
-	public String getName() {
-		return name;
-	}
-
 }

@@ -10,10 +10,7 @@ public class Dollar extends MyCurrency {
 		super(t1);
 	}
 	
-	public boolean isDollar() {
-		return true;
-	}
-	public boolean isPeso(){
-		return false;
+	public int getUnit() {
+		return DOLLAR;
 	}
 }

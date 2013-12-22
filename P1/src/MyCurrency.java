@@ -1,9 +1,13 @@
 
 
 public class MyCurrency {
-
-	public double quantity;
-
+	
+	double quantity;
+	
+	static final int CUR = 100;
+	static final int DOLLAR = 101;
+	static final int PESO = 102;
+	
 	public MyCurrency(double t1) {
 		quantity = t1;
 	}
@@ -11,11 +15,12 @@ public class MyCurrency {
 	public MyCurrency() {
 		quantity = 0;
 	}
-	
-	public boolean isDollar() {
-		return false;
+
+	public double getQuantity() {
+		return quantity;
 	}
-	public boolean isPeso(){
-		return false;
+	
+	public int getUnit() {
+		return CUR;
 	}
 }

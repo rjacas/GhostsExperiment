@@ -3,18 +3,14 @@
 public class Account {
 	
 	User user;
-	MyCurrency cash;
+	MyCurrency amount;
 
 	public double getAmount() {
-		return cash.quantity;
-	}
-
-	public User getUser() {
-		return user;
+		return amount.getQuantity();
 	}
 
 	public Account(User t1, MyCurrency t2) {
 		user = t1;
-		cash = t2;
+		amount = t2;
 	}
 }
