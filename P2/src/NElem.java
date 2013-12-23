@@ -1,27 +1,29 @@
 
 
 public class NElem {
+	String name;
+	NFolder parent;
 
-	public String name;
-	
-	public NFolder parent;
+	public NPath getPath() {
+		return new NPath(this);
+	}
 
 	public NElem(String t1) {
 		name = t1;
 	}
-	
-	public int size() {
-		return 0;
-	}
-	
+
 	public String getName() {
 		return name;
 	}
+
+	public int getSize() {
+		return 0;
+	}
 	
-	public String getPath() {
-		if (parent != null)
-			return parent.getPath() + "/" + name;
+	public NFile findFile(String t1) {
+		if (t1.equals(this.getName()))
+			return (NFile) this;
 		else
-			return name;
+			return null;
 	}
 }

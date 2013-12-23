@@ -6,7 +6,7 @@ public class TestList extends TestCase {
 	NList l;
 	NFile f1;
 	NFile f2;
-	NFile f3;
+	NFile f3; 
 
 	@Override
 	protected void setUp() {
@@ -15,14 +15,9 @@ public class TestList extends TestCase {
 		f2 = new NFile("a");
 		f3 = new NFile("h");
 	}
-
-	@Test
-	public void testCreate() {
-		assertEquals(f1.getName(), "holi");
-	}	
 	
 	@Test
-	public void testBasicAdd() {
+	public void testAdd() {
 		assertTrue(l.size() == 0);
 		l.add(f1);
 		assertTrue(l.size() == 1);

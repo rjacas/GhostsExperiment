@@ -1,17 +1,20 @@
 
 
 public class NFile extends NElem {
-	
 
-	public NFile(String t1) {
-		super(t1);
+	public NPath getPath() {
+		return super.getPath();
 	}
 
 	public String getName() {
-		return super.name;
+		return super.getName();
 	}
-	
-	public int size() {
+
+	public int getSize() {
 		return 1;
+	}
+
+	public NFile(String t1) {
+		super(t1);
 	}
 }
